@@ -10,6 +10,9 @@ COPY package*.json ./
 # Install the dependencies specified in the package.json file
 RUN npm install
 
+# Add node_modules/.bin to the PATH
+ENV PATH /app/node_modules/.bin:$PATH
+
 # Copy all the files from the current directory to the working directory inside the container
 COPY . .
 
